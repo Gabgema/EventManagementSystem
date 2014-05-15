@@ -1,0 +1,123 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using EMS.Model;
+using EMS.Model.Enums;
+
+
+public partial class SI_EventRegistration : System.Web.UI.Page
+{
+    /// <summary>
+    /// contains all events
+    /// </summary>
+    public List<Event> events
+    {
+        get { return (List<Event>)Session["events"]; }
+        set { Session["events"] = value; }
+    }
+    List<Event> singlePlayerEvents,multiPlayerEvents;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        events = Event.GetAllEvents();
+        //Dictionary<Event, int> d = new Dictionary<Event, int>();
+        Organiser organiser = (Organiser)Session["Organiser"];
+
+        singlePlayerEvents = (from i in events where i.IsSinglePlayer select i).ToList();
+        multiPlayerEvents = (from i in events where !i.IsSinglePlayer select i).ToList();
+        if (!IsPostBack) // init only once.
+        {            
+            rptrSinglePlayerEvents.DataSource = singlePlayerEvents;
+            rptrSinglePlayerEvents.DataBind();
+            rptrMultiPlayerEvents.DataSource = multiPlayerEvents;
+            rptrMultiPlayerEvents.DataBind();
+        }
+        foreach (Event ev in multiPlayerEvents)
+        {
+            Panel newPanel = new Panel();
+            newPanel.ID = ev.ID.ToString();            
+            Label l = new Label();
+            l.Text = ev.Name;
+            newPanel.Controls.Add(l);
+            for (int i = 0; i < ev.MaxTeamSize; i++)
+            {                
+                TextBox tb = new TextBox();
+                tb.ID = "TTID" + (i + 1).ToString() + ev.ID;
+                tb.Attributes.Add("placeholder", "TTID " + (i + 1).ToString());
+                newPanel.Controls.Add(tb);
+                RegularExpressionValidator rev = new RegularExpressionValidator();
+                rev.ControlToValidate = tb.ClientID;
+                rev.ValidationExpression = "\\d{4}";
+                rev.ErrorMessage = "*";
+                newPanel.Controls.Add(rev);
+            }
+            pnlRegDetails.Controls.Add(newPanel);
+        }
+
+
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        int ttid = int.Parse(tbTTID.Text);
+        Team t = new Team();
+        t.FromTextboxes(new List<TextBox> { tbTTID });
+        foreach (Control newControl in rptrSinglePlayerEvents.Controls)
+        {
+            if (newControl is CheckBox)
+            {
+                CheckBox c = (CheckBox)newControl;
+                Event selectedEvent = Event.GetEventDetails(int.Parse(c.Attributes["eventId"]));
+                if (c.Checked)
+                {
+                    Event.CreateNewTeam(selectedEvent, t);
+                }
+            }
+        }
+
+        foreach (Control newControl in rptrMultiPlayerEvents.Controls)
+        {
+            if (newControl is CheckBox)
+            {
+                CheckBox c = (CheckBox)newControl;
+                Event selectedEvent = Event.GetEventDetails(int.Parse(c.Attributes["eventId"]));
+                if (!c.Checked)
+                {
+                    Panel newPanel = (Panel)pnlRegDetails.FindControl(selectedEvent.ID.ToString());
+                    newPanel.Visible = false;
+                }
+                else
+                {
+                    Panel newPanel = (Panel)pnlRegDetails.FindControl(selectedEvent.ID.ToString());
+                    newPanel.Controls.OfType<TextBox>().ToList()[0].Text = ttid.ToString();
+                }
+            }
+        }
+        pnlDetails.Visible = false;
+        pnlRegDetails.Visible = true;
+    }
+    //void CreateRegDetailPanel(Event e, int teamId)
+    //{
+    //    Panel p = new Panel();
+    //    p.Attributes["eventId"] = e.ID.ToString();
+    //    Button b = new Button();
+    //    b.Text = "New Team";
+    //    b.Attributes["eventId"] = e.ID.ToString();
+    //    b.Click += b_Click;
+    //    p.Controls.Add(b);
+    //    b = new Button();
+    //    b.Text = "Existing Team";
+    //    b.Attributes["eventId"] = e.ID.ToString();
+    //    b.Click += b_Click;
+    //    p.Controls.Add(b);
+    //    pnlRegDetails.Controls.Add(p);
+    //}
+
+    //void b_Click(object sender, EventArgs e)
+    //{
+    //    int evid = int.Parse(((Button)sender).Attributes["eventId"]);
+
+    //}
+}

@@ -1,0 +1,37 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SI/MasterPage.master" AutoEventWireup="true" CodeFile="EventRegistration.aspx.cs" Inherits="SI_EventRegistration" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <a href="Home.aspx" style="text-decoration: none;">
+        <div class="prev">&larr;</div>
+    </a>
+    <span>Please Select the events below.</span>
+    <asp:Panel ID="pnlDetails" runat="server">
+        <asp:TextBox ID="tbTTID" runat="server" Text="" placeholder="TTID" />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbTTID" ErrorMessage="*"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbTTID" ValidationExpression="\d{4}" ErrorMessage="*"></asp:RegularExpressionValidator>
+        <br />
+        <div style="float: left; width: 400px;" id="singlePlayerEvents">
+            <h2 style="width: 440px;">Single Player Events</h2>
+            <asp:Repeater ID="rptrSinglePlayerEvents" runat="server">
+                <ItemTemplate>
+                    <asp:CheckBox runat="server" ID="CheckBox1" eventId='<%# Eval("ID") %>' Text='<%# Eval("Name") %>' />
+                    <br />
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
+        <div style="float: left; width: 400px; margin-left: 100px;" id="multiPlayerEvents">
+            <h2>Multi Player Events</h2>
+            <asp:Repeater ID="rptrMultiPlayerEvents" runat="server">
+                <ItemTemplate>
+                    <asp:CheckBox ID="CheckBox2" Text='<%# Eval("Name")%>' eventId='<%# Eval("ID") %>' runat="server" />
+                    <br />
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
+        <asp:Button ID="btnSubmit" CssClass="button" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
+    </asp:Panel>
+    <asp:Panel ID="pnlRegDetails" Visible="false" runat="server"></asp:Panel>
+</asp:Content>
+

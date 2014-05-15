@@ -1,0 +1,197 @@
+body {
+    background-image: url(../Images/bg.jpg);
+    margin: 0;
+    font-family: "wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #E11156;
+    padding: 10px;
+}
+
+    header h1 {
+        margin: 0;
+        width: 1000px;
+        margin: auto;
+        color: white;
+        font-weight: 100;
+    }
+
+.content-header {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+span {
+    font-size: 30px;
+}
+
+.content {
+    width: 1000px;
+    height: 590px;
+    margin: auto;
+}
+
+    .content :after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+
+    .content h2 {
+        margin: 0;
+        font-size: 50px;
+        color: #E11156;
+        width: 400px;
+        float: left;
+        font-weight: 100;
+    }
+
+.content-header article {
+    width: 400px;
+    float: right;
+    margin-top: 30px;
+    text-align: right;
+}
+
+.content input[type="text"],.content input[type="password"],select {
+    margin-top: 10px;
+    border: 0;
+    padding: 7px;
+    outline: 0;
+    width: 100%;
+    font-family: inherit;
+    background: transparent;
+    font-weight: 100;
+    font-size: 40px;
+    margin-bottom: 20px -webkit-transition:linear .5s;
+    -moz-transition: linear .5s;
+    -ms-transition: linear .5s;
+    -o-transition: linear .5s;
+    transition: linear .5s;
+    border: solid 1px #E11156;
+    color: #E11156;
+}
+
+footer {
+    background: white;
+    border: solid 1px #eee;
+    width: 100%;
+    padding: 10px 10px;
+    text-align: center;
+    color: #E11156;
+    height: 115px;
+}
+
+.Events:hover {
+    background: white;
+    color: #E11156;
+}
+
+.Events {
+    cursor: pointer;
+    margin-top: 10px;
+    background: #E11156;
+    border: solid 1px #fff;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    outline: 0px;
+    -webkit-transition: linear .5s;
+    -moz-transition: linear .5s;
+    -ms-transition: linear .5s;
+    -o-transition: linear .5s;
+    transition: linear .5s;
+    font-family: "wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+}
+
+::-webkit-input-placeholder {
+    color: #E11156;
+    font-weight: 100;
+}
+
+:-moz-placeholder {
+    color: #E11156;
+    font-weight: 100;
+    font-family: "wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+}
+
+::-moz-placeholder {
+    color: #E11156;
+    font-weight: 100;
+    font-family: "wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+}
+
+:-ms-input-placeholder {
+    color: #E11156;
+    font-weight: 100;
+    font-family: "wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+}
+
+.button {
+    background: #E11156;
+    border: solid 1px #E11156;
+    padding: 20px;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+    outline: 0px;
+    -webkit-transition: linear .5s;
+    -moz-transition: linear .5s;
+    -ms-transition: linear .5s;
+    -o-transition: linear .5s;
+    cursor: pointer;
+    transition: linear .5s;
+    font-family: "wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+}
+
+    .button:focus {
+        background: white;
+        color: #E11156;
+    }
+
+    .button:hover {
+        background: white;
+        color: #E11156;
+    }
+
+.prev {
+    font-family: "wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+    height: 32px;
+    width: 35px !important;
+    background: #E11156;
+    border-radius: 10%;
+    color: #fff;
+    line-height: 28px;
+    text-align: center;
+    speak: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.btnlogout {
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    top: 3%;
+    left: 80%;
+    font-size: 20px;
+}
+
+
+#leftContent
+{
+    float:left;
+    width:400px;
+}
+
+#rightContent
+{
+    float:left;
+    width:400px;
+    margin-left:100px;
+}

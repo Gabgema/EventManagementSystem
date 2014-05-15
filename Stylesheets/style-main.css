@@ -1,0 +1,111 @@
+body
+{
+background-image:url(../Images/bg.jpg);
+ color:white;
+ margin:0;overflow-x:hidden;
+ margin-top:-54px;
+}
+.wrapper
+{
+width:1000px;
+ margin:auto;
+ height:740px;
+}
+footer
+{
+background:white;
+border:solid 1px #eee;
+ width:100%;
+ padding:10px 10px;
+text-align:center; 
+ color:#E11156;
+ height:115px;
+}
+.button:hover
+{
+background:white;
+ color:#E11156;
+}
+h1
+{
+font-size:80px;
+font-family:"wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+ font-weight:100;
+ text-align:center;
+ color:#E11156;
+}
+.content-login
+{
+width:500px;
+margin:auto;
+}
+.content-login input[type="text"],.content-login input[type="password"]
+{
+border:0;
+padding:10px;
+ outline:0;
+ width:100%;
+ background:transparent;
+ color:#E11156;
+ font-size:80px;
+ margin-bottom:20px
+  -webkit-transition:linear .5s;
+ -moz-transition:linear .5s;
+ -ms-transition:linear .5s;
+ -o-transition:linear .5s;
+transition:linear .5s;
+ border:solid 1px transparent;
+ border:solid 1px #E11156;
+}
+.content-login input[type="text"]:focus,.content-login input[type="password"]:focus
+{
+   -webkit-transition:linear .5s;
+ -moz-transition:linear .5s;
+ -ms-transition:linear .5s;
+ -o-transition:linear .5s;
+transition:linear .5s;
+border:solid 1px #fff;
+}
+.button
+{
+background:#E11156;
+ border:solid 1px #fff;
+ padding:20px;
+ color:white;
+ width:100%;
+ font-size:20px;
+ outline:0px;
+    -webkit-transition:linear .5s;
+ -moz-transition:linear .5s;
+ -ms-transition:linear .5s;
+ -o-transition:linear .5s;
+transition:linear .5s;
+cursor:pointer;
+font-family:"wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+}
+.button:focus
+{
+background:white;
+ color:#E11156;
+}
+
+::-webkit-input-placeholder {
+    color:    #E11156;
+ font-weight:100;
+ 
+}
+:-moz-placeholder { 
+    color:    #E11156;
+ font-weight:100;
+ font-family:"wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+}
+::-moz-placeholder { 
+    color:    #E11156;
+ font-weight:100;
+ font-family:"wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+}
+:-ms-input-placeholder { 
+    color:    #E11156;
+ font-weight:100;
+ font-family:"wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+}

@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="SI_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../Stylesheets/style-socities.css" rel="stylesheet" />
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        .content {
+            min-height: 650px;
+            height: auto;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+            <ProgressTemplate>
+                <div style="background-color: black; opacity: 0.5; width: 100%; height: 100%; z-index: 200; position: absolute; margin: 0; top: 0%; left: 0%;">
+                    <img style="top: 36%; position: absolute; left: 46%" src="../Images/ajax-loader.gif" alt="Loading..." />
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+        <header>
+            <h1>Event Management System</h1>
+            <asp:LinkButton ID="lnkbtnLogout" ValidationGroup="nothing" CssClass="btnlogout" OnClick="lnkbtnLogout_Click" Text="Logout" runat="server"></asp:LinkButton>
+        </header>
+        <section class="content">
+            <div class="content-header">
+                <h2>Software Incubator</h2>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </section>
+        <footer>
+            <img src="../Images/SI%20FINALEST%20LOGO.png" alt="Software Incubator" />
+        </footer>
+    </form>
+</body>
+</html>

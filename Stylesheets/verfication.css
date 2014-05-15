@@ -1,0 +1,14 @@
+body
+{
+padding:0px;
+ margin:0px;
+}
+.content
+{
+width:1000px;
+ z-index:2;
+ margin:auto;
+ padding:10px;
+ background-color:white;
+ border:solid 1px #eee;
+}
